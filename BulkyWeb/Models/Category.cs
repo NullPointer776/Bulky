@@ -5,7 +5,7 @@ namespace BulkyWeb.Models
 {
     public class Category
     {
-        //Test 5
+        //Test 6
         [Key]
         public int Id { get; set; }
         [Required]
