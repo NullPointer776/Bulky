@@ -22,4 +22,8 @@
     <ProjectReference Include="..\SD7501Bulky.Utility\SD7501Bulky.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
