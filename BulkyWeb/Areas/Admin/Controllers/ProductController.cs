@@ -26,11 +26,13 @@ namespace BulkyWeb.Areas.Admin.Controllers
         //Create button
         public IActionResult Create()
         {
-            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem
+
+            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
             {
-                Text = i.Name,
-                Value = i.Id.ToString()
+                Text = u.Name,
+                Value = u.Id.ToString()
             });
+            ViewBag.CategoryList = CategoryList;
             return View();
         }
         [HttpPost]
