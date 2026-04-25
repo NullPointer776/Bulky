@@ -12,5 +12,6 @@ namespace SD7501Bulky.DataAccess.Repository.IRepository
     {
         void Update(Product obj);
         void Save();
+        
     }
 }
