@@ -20,26 +20,10 @@ namespace SD7501Bulky.DataAccess.Repository
             this.dbSet = _db.Set<T>();
             _db.Products.Include(u => u.Category).Include(u => u.CategoryId);
         }
-
-        public IEnumerable<T> GetAll(string? includeProperties = null, string includeProperties1 = null)
-        {
-            IQueryable<T> query = dbSet;
-            if (!string.IsNullOrEmpty(includeProperties))
-            {
-                foreach (var includeProp in includeProperties
-                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(includeProp);
-                }
-            }
-            return query.ToList();
-        }
-
         void IRepository<T>.Add(T entity)
         {
             dbSet.Add(entity);
         }
-
         T IRepository<T>.Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
@@ -54,7 +38,20 @@ namespace SD7501Bulky.DataAccess.Repository
             }
             return query.FirstOrDefault();
         }
-
+        IEnumerable<T> IRepository<T>.GetAll(string? includeProperties = null)
+        {
+            IQueryable<T> query = dbSet;
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+            return query.ToList();
+        }
+      
         void IRepository<T>.Remove(T entity)
         {
             dbSet.Remove(entity);

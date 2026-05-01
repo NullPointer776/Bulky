@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SD7501Bulky.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260413100557_test")]
+    [Migration("20260501224141_test")]
     partial class test
     {
         /// <inheritdoc />

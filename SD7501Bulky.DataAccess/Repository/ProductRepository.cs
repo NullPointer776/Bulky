@@ -23,7 +23,7 @@ namespace SD7501Bulky.DataAccess.Repository
         {
             _db.SaveChanges();
         }
-        public IEnumerable<Product> GetAll(string? includeProperties = null, string includeProperties1 = null)
+        public IEnumerable<Product> GetAll(string? includeProperties = null)
         {
             IQueryable<Product> query = _db.Products;
             if (!string.IsNullOrEmpty(includeProperties))
