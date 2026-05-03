@@ -1,6 +1,7 @@
 ﻿
 using BulkyWeb.Data;
 using BulkyWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,10 +9,12 @@ using SD7501Bulky.DataAccess.Repository;
 using SD7501Bulky.DataAccess.Repository.IRepository;
 using SD7501Bulky.Models;
 using SD7501Bulky.Models.ViewModels;
+using SD7501Bulky.Utility;
 
 namespace BulkyWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -127,7 +130,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            List<Product> objProductList = _unitOfWork.Product.GetAll(includesProperties: "Category").ToList();
+            List<Product> objProductList = _unitOfWork.Product.GetAll(includeProperties: "Category").ToList();
 
              return Json(new { data = objProductList });
         }
