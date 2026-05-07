@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using BulkyWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using SD7501Bulky.DataAccess.Repository;
 using SD7501Bulky.DataAccess.Repository.IRepository;
 using SD7501Bulky.Models;
 
