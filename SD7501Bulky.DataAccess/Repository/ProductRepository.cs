@@ -36,6 +36,19 @@ namespace SD7501Bulky.DataAccess.Repository
             }
             return query.ToList();
         }
+        public IEnumerable<Product> Get(string? includeProperties = null)
+        {
+            IQueryable<Product> query = _db.Products;
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+            return query.ToList();
+        }
         public void Update(Product obj)
         {
             var objFromDb = _db.Products.FirstOrDefault(u => u.Id == obj.Id);
