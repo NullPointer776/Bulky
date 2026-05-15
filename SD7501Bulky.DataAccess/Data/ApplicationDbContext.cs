@@ -7,7 +7,7 @@ using System.Collections.Concurrent;
 
 namespace BulkyWeb.Data
 {
-    public class ApplicationDbContext:IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
         }
@@ -30,50 +30,50 @@ namespace BulkyWeb.Data
 
                 );
             modelBuilder.Entity<Company>().HasData(
-                new Company 
-                {   Id = 1, 
-                    Name = "Tech Solution", 
-                    StreetAddress = "123 Tech Street", 
+                new Company
+                { Id = 1,
+                    Name = "Tech Solution",
+                    StreetAddress = "123 Tech Street",
                     City = "Techville",
-                    State = "TS", 
-                    PostalCode = "12345", 
+                    State = "TS",
+                    PostalCode = "12345",
                     PhoneNumber = "123-456-7890" },
-                new Company 
-                { 
-                    Id = 2, 
-                    Name = "Business Corp", 
-                    StreetAddress = "456 Business Ave", 
-                    City = "Businesstown", 
-                    State = "BC", 
-                    PostalCode = "67890", 
+                new Company
+                {
+                    Id = 2,
+                    Name = "Business Corp",
+                    StreetAddress = "456 Business Ave",
+                    City = "Businesstown",
+                    State = "BC",
+                    PostalCode = "67890",
                     PhoneNumber = "987-654-3210" },
-                new Company 
-                { 
-                    Id = 3, 
-                    Name = "Innovate LLC", 
-                    StreetAddress = "789 Innovation Blvd", 
-                    City = "Innovate City", 
-                    State = "IL", 
-                    PostalCode = "54321", 
+                new Company
+                {
+                    Id = 3,
+                    Name = "Innovate LLC",
+                    StreetAddress = "789 Innovation Blvd",
+                    City = "Innovate City",
+                    State = "IL",
+                    PostalCode = "54321",
                     PhoneNumber = "555-123-4567" }
                 );
             modelBuilder.Entity<Product>().HasData(
-                new Product 
-                { 
-                    Id = 1, 
-                    Title = "Fortune of Time", 
+                new Product
+                {
+                    Id = 1,
+                    Title = "Fortune of Time",
                     Author = "Billy Spark",
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a semper dui. Suspendisse nec congue enim. Donec fermentum auctor ligula, eget accumsan dolor.",
-                    ISBN = "SWD9999001", 
-                    ListPrice = 99.00, 
-                    Price = 90.00, 
-                    Price50 = 85.00, 
-                    Price100 = 80.00, 
-                    CategoryId=1, 
+                    ISBN = "SWD9999001",
+                    ListPrice = 99.00,
+                    Price = 90.00,
+                    Price50 = 85.00,
+                    Price100 = 80.00,
+                    CategoryId = 1,
                     ImageUrl = ""
 
                 },
-                new Product                 
+                new Product
                 {
                     Id = 2,
                     Title = "Dark Skies",
@@ -144,6 +144,8 @@ namespace BulkyWeb.Data
                     ImageUrl = ""
                 }
                 );
+            
+            }
         }
-    }
-}
+    } 
+
